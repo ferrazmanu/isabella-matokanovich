@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@shared/*": ["shared/*"],
+      "@sections/*": ["components/sections/*"]
+    },
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".eslintrc.js"],
+  "exclude": ["node_modules"],
+  "allowJs": true
+}

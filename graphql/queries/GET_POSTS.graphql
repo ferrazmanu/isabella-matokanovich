@@ -1,0 +1,17 @@
+const GET_POSTS = gql`
+  query getPosts {
+    posts {
+      id
+      date
+      tags
+      title
+      slug
+      coverImage {
+        url
+      }
+      content {
+        text
+      }
+    }
+  }
+`
