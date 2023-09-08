@@ -26,6 +26,10 @@ ul, li{
     background-color: #fef4f1;
 }
 
+.rosa{
+    color: var(--color-4);
+}
+
 .section-title {
     text-transform: uppercase;
     color: var(--color-3);

@@ -196,9 +196,9 @@ export const getStaticProps: GetStaticProps = async () => {
   ];
   return {
     props: {
-      posts: posts.data.posts,
-      categories: categoriesArray,
-      revalidate: 5000,
+      posts: posts.data.posts || [],
+      categories: categoriesArray || [],
     },
+    revalidate: 5000,
   };
 };

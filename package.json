@@ -33,6 +33,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "clean": "rmdir /s /q .next",
     "codegen": "graphql-codegen",
     "lint": "npx eslint . test",
     "lint:fix": "npm run lint --fix",
