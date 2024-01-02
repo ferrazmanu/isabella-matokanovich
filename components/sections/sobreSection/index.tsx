@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import SobreStyles from "./styles";
 
-export function SobreSection() {
+export function SobreSection({ aboutHomeData }: any) {
   return (
     <SobreStyles id="sobre">
       <Container>
@@ -15,11 +15,12 @@ export function SobreSection() {
               <h3 className="titulo-48-regular">Sobre mim</h3>
             </div>
             <div className="content-text">
-              <p className="titulo-24-book">
-                Olá, eu sou a Isabella Matokanovich, formada há 5 anos em
-                Publicidade e Propaganda, e, pós-graduada em Produção
-                Audiovisual pela Unopar.
-              </p>
+              <div
+                className="titulo-24-book"
+                dangerouslySetInnerHTML={{
+                  __html: aboutHomeData,
+                }}
+              />
             </div>
 
             <ButtonComponent href="/sobre" text="Saiba mais" />

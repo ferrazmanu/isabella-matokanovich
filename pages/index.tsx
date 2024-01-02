@@ -9,14 +9,15 @@ import { SobreSection } from "@components/sections/sobreSection/";
 import { ContatoComponent } from "@components/sections/contatoSection";
 import { GetStaticProps } from "next";
 import { client } from "lib/apollo";
-import { GET_CONTACT_PAGE, GET_HOME_POSTS } from "lib/data";
+import { GET_ABOUT_HOME, GET_CONTACT_PAGE, GET_HOME_POSTS } from "lib/data";
 
 interface Props {
   postsData: any;
   contactData: any;
+  aboutHomeData: any;
 }
 
-export default function Home({ postsData, contactData }) {
+export default function Home({ postsData, contactData, aboutHomeData }) {
   return (
     <Layout>
       <BannerComponent
@@ -24,7 +25,7 @@ export default function Home({ postsData, contactData }) {
         title="Isabella Matokanovich"
         subTitle="Redatora"
       />
-      <SobreSection />
+      <SobreSection aboutHomeData={aboutHomeData} />
       <PostsDestaques posts={postsData} />
       <ContatoComponent text={contactData} />
     </Layout>
@@ -39,6 +40,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     const { data: contactData } = await client.query({
       query: GET_CONTACT_PAGE,
     });
+    const { data: aboutHomeData } = await client.query({
+      query: GET_ABOUT_HOME,
+    });
 
     if (!postsData || !contactData) {
       throw new Error("Data not available");
@@ -48,6 +52,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       props: {
         postsData: postsData.posts,
         contactData: contactData.page.content.html,
+        aboutHomeData: aboutHomeData.page.content.html,
       },
       revalidate: 5000,
     };
@@ -57,6 +62,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       props: {
         postsData: null,
         contactData: null,
+        aboutHomeData: null,
       },
     };
   }

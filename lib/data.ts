@@ -30,6 +30,16 @@ export const GET_CATEGORIES = gql`
   }
 `;
 
+export const GET_ABOUT_HOME = gql`
+  query AboutHome {
+    page(where: { slug: "home" }) {
+      content {
+        html
+      }
+    }
+  }
+`;
+
 export const GET_HOME_POSTS = gql`
   query getPosts {
     posts(first: 3) {
