@@ -17,7 +17,6 @@ interface Props {
 }
 
 export default function Home({ postsData, contactData }) {
-  console.log(contactData);
   return (
     <Layout>
       <BannerComponent

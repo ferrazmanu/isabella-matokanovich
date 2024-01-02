@@ -1,27 +1,28 @@
 /* eslint-disable prettier/prettier */
-import { useEffect, useState } from 'react'
-import { CarreiraSwiperStyles } from './styles'
+import { useEffect, useState } from "react";
+import { CarreiraSwiperStyles } from "./styles";
 
 interface CompaniesProps {
-  companies: CompanyProps[]
+  companies: CompanyProps[];
 }
 
-interface CompanyProps {
-  id: string | number
-  companyName: string
-  endYear: number
-  startYear: number
+export interface CompanyProps {
+  id: string | number;
+  companyName: string;
+  endYear?: number;
+  startYear: number;
+  currentJob: boolean;
 }
 
 export function CarreiraSwiperComponent({ companies }: CompaniesProps) {
-  const [sortedCompanies, setSortedCompanies] = useState<CompanyProps[]>([])
+  const [sortedCompanies, setSortedCompanies] = useState<CompanyProps[]>([]);
 
   useEffect(() => {
     if (companies) {
-      const sorted = [...companies].sort((a, b) => a.startYear - b.startYear)
-      setSortedCompanies(sorted)
+      const sorted = [...companies].sort((a, b) => a.startYear - b.startYear);
+      setSortedCompanies(sorted);
     }
-  }, [companies])
+  }, [companies]);
 
   return (
     <CarreiraSwiperStyles>
@@ -35,16 +36,19 @@ export function CarreiraSwiperComponent({ companies }: CompaniesProps) {
                 </h6>
                 <div className="bubble-date">
                   <span className="paragraph-18-regular">
-                    {company.startYear} - {company.endYear}
+                    {company.startYear} -{" "}
+                    {!company.currentJob && company.endYear
+                      ? company.endYear
+                      : "Atual"}
                   </span>
                 </div>
               </div>
 
               <div className="line"></div>
             </div>
-          )
+          );
         })}
       </div>
     </CarreiraSwiperStyles>
-  )
+  );
 }

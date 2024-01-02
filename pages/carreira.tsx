@@ -5,14 +5,17 @@ import { GET_CAREER_PAGE, GET_COMPANIES } from "lib/data";
 
 import { Layout } from "@components/layout/layout";
 import { BannerComponent } from "@components/banner";
-import { CarreiraSwiperComponent } from "@components/carreiraSwiper";
+import {
+  CarreiraSwiperComponent,
+  CompanyProps,
+} from "@components/carreiraSwiper";
 
 import { Container } from "@shared/styles";
 import { CarreiraStyles } from "@shared/pages_styles/carreira-styles";
 
 interface Props {
   text: object;
-  companies: object;
+  companies: CompanyProps[];
 }
 
 export default function Carreira({ text, companies }) {

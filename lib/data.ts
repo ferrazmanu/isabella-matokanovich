@@ -98,6 +98,7 @@ export const GET_COMPANIES = gql`
       endYear
       startYear
       companyName
+      currentJob
     }
   }
 `;
